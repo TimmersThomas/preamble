@@ -13,4 +13,4 @@
 - name: Set m2-repo settings directory
   template:
     src: settings.xml.j2
-    dest: {{home_directory}}/.m2/settings.xml
+    dest: "{{home_directory}}/.m2/settings.xml"
