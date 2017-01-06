@@ -2,9 +2,11 @@
 - hosts: all
   roles:
     - common
+    - java
+    - nodejs
     - databases
-#    - nginx
+    - web
     - ruby
 #    - ios
-    - mail
+#    - mail
     - osx

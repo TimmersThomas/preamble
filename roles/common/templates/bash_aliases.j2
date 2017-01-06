@@ -1,0 +1,29 @@
+alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+alias nginx.restart='nginx.stop && nginx.start'
+alias nginx.log='subl /usr/local/var/log/'
+
+#alias php56.start='launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist'
+#alias php56.stop='launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist'
+#alias php56.restart='php56.stop && php56.start'
+#alias php56.debug='export XDEBUG_CONFIG="idekey=PHPSTORM"'
+#alias php56.profile='export XDEBUG_PROFILE="idekey=PHPSTORM"'
+#alias php56.ini='subl /usr/local/etc/php/5.6/'
+
+alias php71.start='launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php71.plist'
+alias php71.stop='launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php71.plist'
+alias php71.restart='php71.stop && php71.start'
+alias php71.debug='export XDEBUG_CONFIG="idekey=PHPSTORM"'
+alias php71.profile='export XDEBUG_PROFILE="idekey=PHPSTORM"'
+alias php71.ini='subl /usr/local/etc/php/7.0/'
+
+alias mariadb.start='launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist'
+alias mariadb.stop='launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist'
+alias mariadb.restart='mariadb.stop && mariadb.start'
+
+
+
+alias dnsmasq.start='launchctl start homebrew.mxcl.dnsmasq'
+alias dnsmasq.stop='launchctl stop homebrew.mxcl.dnsmasq'
+alias dnsmasq.restart='dnsmasq.stop && dnsmasq.start'
+alias dnsmasq.config='subl /usr/local/etc/dnsmasq.conf'

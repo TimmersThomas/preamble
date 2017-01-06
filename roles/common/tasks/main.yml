@@ -10,33 +10,65 @@
 - name: Update homebrew
   homebrew: update_homebrew=yes
 
+- name: Ensure presence of bash_profile
+  file: state=touch path={{home_directory}}/.bash_profile
+
+- name: Load bashrc in bash_profile
+  lineinfile: dest={{home_directory}}/.bash_profile regexp="\. \$HOME\/\.bashrc" line="[[ -r $HOME/.bashrc ]] && . $HOME/.bashrc"
+
+- name: Ensure presence of bashrc
+  file: state=touch path={{home_directory}}/.bashrc
+
+- name: Add local bin to $PATH
+  shell: echo "export PATH=\"$HOME/local/bin\:\$PATH\"" >> {{home_directory}}/.bashrc
+
+- name: Add brew to beginning of $PATH
+  shell: echo "export PATH=\"/usr/local/bin\:\$PATH\"" >> {{home_directory}}/.bashrc
+
+- name: Set bash_aliases
+  template:
+    src: bash_aliases.j2
+    dest: {{home_directory}}/.bash_aliases
+
+- name: Tap homebrew cask
+  homebrew_tap: name=caskroom/cask state=present
+
+- name: Install homebrew cask
+  homebrew: name="brew-cask" state=latest
+
+- name: Clean homebrew cask
+  shell: brew cask cleanup
+  
 - name: Common utilities
   homebrew: name={{ item }} state=present
   tags:
     - utils
   with_items:
     - git
-    - ag     # [A code-searching tool similar to ack, but faster](http://geoff.greer.fm/ag/)
-#    - tmux   # [A better screen](http://tmux.sourceforge.net)
-#    - links  # [Browse in the terminal](http://links.twibright.com)
-#    - ngrok  # [Easy way to get a public IP](https://ngrok.com)
+    - curl
+    - build-essential
+    - libssl-dev
     - htop   # [A better top](http://hisham.hm/htop/)
-    - heroku # Heroku Toolbelt
-#    - mosh   # [A better ssh (sometimes)](https://mosh.mit.edu)
-    - tig    # A 'text-mode interface' for git. Bit more visual than regular git.
-    - nvm    # Node.js version manager
     - git-flow
     - hub    # Command line interface for GitHub (wrapper for `git`)
     - tree   # I love this util for printing a tree of directories
-    - graphviz # To draw class diagrams
     - httpie # Improved web service testing
-    - aspell # TODO --with-lang-nl --with-lang-en
-#    - clang  # Needs more clang
-    - llvm   # For emacs's company-mode
-    - cmake  # For emacs's company-mode
     - imagemagick # Convert all the things
-#    - trash  # Move to trash from the command line
-    - chruby # Ruby version manager
+    - python3
+    - awscli
+    - s3cmd
+    - trash  # Move to trash from the command line
+    - qlcolorcode 
+    - qlstephen 
+    - qlmarkdown 
+    - quicklook-json 
+    - qlprettypatch 
+    - quicklook-csv 
+    - betterzipql 
+    - qlimagesize 
+    - webpquicklook 
+    - suspicious-package 
+    - qlvideo
 
 - name: GNU global with ctags & pygments
   shell: brew install global --with-ctags --with-pygments
@@ -51,3 +83,14 @@
   homebrew_cask: name={{ item }} state=present
   with_items:
     - font-fira-code
+
+
+- name: Setup default git configuraiton
+  git_config:
+    name="{{ item.name }}"
+    scope=global
+    value="{{ item.value }}"
+  with_items:
+    - {name: "user.name",  value: "{{ person.name }}" }
+    - {name: "user.email", value: "{{ person.email }}" }
+    - {name: "ui.color",   value: "True" }

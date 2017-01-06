@@ -1,7 +1,7 @@
 - name: Dock stuff
   command: defaults write com.apple.dock {{ item.key }} {{ item.value }}
   with_items:
-    - {key: 'orientation', value: 'right'}
+    - {key: 'orientation', value: 'left'}
     - {key: 'autohide', value: '-boolean true' }
 
 - name: Restart Dock

@@ -1,0 +1,7 @@
+---
+# Installs nginx and makes sure we can redirect *.dev to custom ports
+
+- name: Install PHP versions
+  homebrew: name={{ item }} state=present
+  with_items:
+    - php71

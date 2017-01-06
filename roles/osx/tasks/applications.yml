@@ -1,42 +1,61 @@
 - name: Install Applications
   homebrew_cask: name={{ item }} state=installed
   with_items:
-  - 1password        # Password manager
-  - alfred           # Quick launcher
-  - chromium         # Chrome, but less evil (I hope)
-  - cyberduck        # FTP
-  - dash             # offline documentation
-  - dropbox          # Files in the cloud
-  - firefox          # The best browser out there
-#  - font-dejavu-sans # Fall-back fond
-  - font-fira-code   # My preferred font
-#  - font-fira-mono   # Fira, but without ligatures
-  - google-hangouts  # Audio & video chatting
-  - handbrake        # Video conversion
-#  - harvest          # Time tracking
-# - iexplorer
-# - inkscape
-#  - iterm2           # Preferred Terminal
-#  - limechat         # IRC chatting
-#  - macdown          # Markdown editor WYSIWYG
-  - mactex           # LaTeX on macOS
-# - mailmate
-# - ngrok
-# - p4merge
-  - psequel          # PostgreSQL browser
-# - quickradar       # Post to openradar and apple at once (does not do 2FA)
-# - reveal           # For iOS UI debuggin
-# - rubymotion
-# - screenhero
-# - sketch
-  - skype            # More audio/video chatting
-  - slack            # Chat
-  - spectacle        # Resizing windows the easy way
-  - spotify          # Music
-  - sqlitebrowser    # SQLite browser
-#  - teamviewer       # To provide remove support to relatives
-#  - teensy           # Firmware updater for Ergodox
-#  - the-unarchiver   # File decrompressor
-  - utorrent         # To borrow things from the internet
-# - viber
-  - whatsapp         # Meh
+    - 1password        # Password manager
+    - alfred           # Quick launcher
+    - caffeine
+    - chromium         # Chrome, but less evil (I hope)
+    - dash             # offline documentation
+    - datagrip
+    - devcenter
+    - divvy
+    - docker
+    - dropbox          # Files in the cloud
+    - evernote
+    - firefox          # The best browser out there
+    - font-dejavu-sans # Fall-back fond
+    - font-fira-code   # My preferred font
+    - google-chrome
+    - google-hangouts  # Audio & video chatting
+    - intellij-idea
+    - iterm2           # Preferred Terminal
+    - macid
+    - microsoft-office
+    - phpstorm
+    - sketch
+    - slack            # Chat
+    - sonos
+    - sourcetree
+    - spotify          # Music
+    - sublime-text
+    - teamviewer       # To provide remove support to relatives
+    - the-unarchiver   # File decrompressor
+    - toggldesktop
+    - transmission
+    - tunnelblick
+    - virtualbox
+    - visual-studio-code
+    - vlc
+    - webstorm
+    #  - font-fira-mono   # Fira, but without ligatures
+    #  - harvest          # Time tracking
+    #  - limechat         # IRC chatting
+      - macdown          # Markdown editor WYSIWYG
+    #  - mactex           # LaTeX on macOS
+    #  - psequel          # PostgreSQL browser
+    #  - skype            # More audio/video chatting
+    #  - spectacle        # Resizing windows the easy way
+    #  - sqlitebrowser    # SQLite browser
+    #  - teensy           # Firmware updater for Ergodox
+    #  - whatsapp         # Meh
+    # - handbrake        # Video conversion
+    # - iexplorer
+    # - inkscape
+    # - mailmate
+    # - ngrok
+    # - p4merge
+    # - quickradar       # Post to openradar and apple at once (does not do 2FA)
+    # - reveal           # For iOS UI debuggin
+    # - rubymotion
+    # - screenhero
+    # - viber

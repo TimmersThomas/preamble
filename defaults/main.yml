@@ -1,0 +1,6 @@
+# file: roles/base_osx/defaults/main.yml
+
+---
+person:
+  name: Thomas Timmers
+  email: me@timmersthomas.be

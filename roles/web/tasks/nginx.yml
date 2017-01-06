@@ -4,9 +4,9 @@
 - name: Install nginx
   homebrew: name=nginx state=present
 
-- name: Load nginx at startup
-  file: src=/usr/local/opt/nginx/homebrew.mxcl.nginx.plist dest=/Library/LaunchDaemons/homebrew.mxcl.nginx.plist state=link
-  sudo: yes
+#- name: Load nginx at startup
+#  file: src=/usr/local/opt/nginx/homebrew.mxcl.nginx.plist dest=/Library/LaunchDaemons/homebrew.mxcl.nginx.plist state=link
+#  sudo: yes
 
 - name: Make sure it can run as root
   file: path=/usr/local/opt/nginx/homebrew.mxcl.nginx.plist owner=root group=wheel
