@@ -33,9 +33,6 @@
 - name: Tap homebrew cask
   homebrew_tap: name=caskroom/cask state=present
 
-- name: Install homebrew cask
-  homebrew: name="brew-cask" state=latest
-
 - name: Clean homebrew cask
   shell: brew cask cleanup
   
@@ -58,17 +55,7 @@
     - awscli
     - s3cmd
     - trash  # Move to trash from the command line
-    - qlcolorcode 
-    - qlstephen 
-    - qlmarkdown 
-    - quicklook-json 
-    - qlprettypatch 
-    - quicklook-csv 
-    - betterzipql 
-    - qlimagesize 
-    - webpquicklook 
-    - suspicious-package 
-    - qlvideo
+
 
 - name: GNU global with ctags & pygments
   shell: brew install global --with-ctags --with-pygments
