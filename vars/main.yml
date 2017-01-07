@@ -1,0 +1,14 @@
+# file: roles/base_osx/defaults/main.yml
+
+---
+person:
+  name: Thomas Timmers
+  email: me@timmersthomas.be
+  
+nvm_env: user
+nvm_version: v0.33.0
+nvm_default_node_version: stable
+nvm_node_versions:
+  - stable
+  - 4.2
+nvm_global_packages:  ['babel-cli', 'babel-preset-es2016', 'babel-preset-es2015', 'babel-preset-env', 'babel-preset-react', 'grunt', 'gulp', 'typescript', 'angular-cli', 'bower', 'npm-check-updates', 'yo']

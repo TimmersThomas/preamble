@@ -1,0 +1,8 @@
+- name: Babel - generate BableRc file if needed
+  file: state=touch path={{ ansible_env.HOME}}/.babelrc
+
+- name: Babel - Save default presets in BabelRc
+  shell: echo "{\"presets\":[\"env\",\"es2015\"]}" >> {{ ansible_env.HOME}}/.babelrc
+
+- name: NodeJs Source bash_profile
+  shell: source {{ ansible_env.HOME}}/.bashrc

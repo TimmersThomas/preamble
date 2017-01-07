@@ -28,13 +28,13 @@
 - name: Setup dnsmasq conf for *.dev
   lineinfile: dest=/usr/local/etc/dnsmasq.conf line='address=/.dev/127.0.0.1' state=present create=yes
 
-- name: Setup dnsmqas autolaunch
-  copy: src=/usr/local/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist owner=root group=wheel
-  sudo: yes
+#- name: Setup dnsmqas autolaunch
+#  copy: src=/usr/local/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist owner=root group=wheel
+#  sudo: yes
 
-- name: Launch dnsmasq
-  command: launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-  sudo: yes
+#- name: Launch dnsmasq
+#  command: launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+#  sudo: yes
 
 - name: Setup resolver directory
   file: path=/etc/resolver state=directory

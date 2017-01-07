@@ -1,46 +1,9 @@
 - name: Install Applications
   homebrew_cask: name={{ item }} state=installed
   with_items:
-    - 1password        # Password manager
-    - alfred           # Quick launcher
-    - caffeine
-    - chromium         # Chrome, but less evil (I hope)
-    - dash             # offline documentation
-    - datagrip
-    - devcenter
-    - divvy
-    - docker
-    - dropbox          # Files in the cloud
-    - evernote
-    - firefox          # The best browser out there
-    - font-dejavu-sans # Fall-back fond
-    - font-fira-code   # My preferred font
-    - google-chrome
-    - google-hangouts  # Audio & video chatting
-    - intellij-idea
-    - iterm2           # Preferred Terminal
-    - macid
-    - microsoft-office
-    - phpstorm
-    - sketch
-    - slack            # Chat
-    - sonos
-    - sourcetree
-    - spotify          # Music
-    - sublime-text
-    - teamviewer       # To provide remove support to relatives
-    - the-unarchiver   # File decrompressor
-    - toggldesktop
-    - transmission
-    - tunnelblick
-    - virtualbox
-    - visual-studio-code
-    - vlc
-    - webstorm
     #  - font-fira-mono   # Fira, but without ligatures
     #  - harvest          # Time tracking
     #  - limechat         # IRC chatting
-      - macdown          # Markdown editor WYSIWYG
     #  - mactex           # LaTeX on macOS
     #  - psequel          # PostgreSQL browser
     #  - skype            # More audio/video chatting
@@ -59,3 +22,40 @@
     # - rubymotion
     # - screenhero
     # - viber
+    - 1password        # Password manager
+    - alfred           # Quick launcher
+    - caffeine
+    - chromium         # Chrome, but less evil (I hope)
+    - dash             # offline documentation
+    - datagrip
+    - devcenter
+    - divvy
+    - docker
+    - dropbox          # Files in the cloud
+    - evernote
+    - firefox          # The best browser out there
+    - font-dejavu-sans # Fall-back fond
+    - font-fira-code   # My preferred font
+    - google-chrome
+    - google-hangouts  # Audio & video chatting
+    - intellij-idea
+    - iterm2           # Preferred Terminal
+    - macdown          # Markdown editor WYSIWYG
+    - macid
+    - microsoft-office
+    - phpstorm
+    - sketch
+    - slack            # Chat
+    - sonos
+    - sourcetree
+    - spotify          # Music
+    - sublime-text
+    - teamviewer       # To provide remove support to relatives
+    - the-unarchiver   # File decrompressor
+    - toggldesktop
+    - transmission
+    - tunnelblick
+    - virtualbox
+    - visual-studio-code
+    - vlc
+    - webstorm

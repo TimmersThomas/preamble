@@ -1,22 +1,32 @@
-- name: Install nvm
-  include_role:
-    name: pablocrivella.nvm
-  vars:
-    nvm_env: user
-    nvm_version: v0.33.0
-    nvm_default_node_version: stable
-    nvm_node_versions:
-      - stable
-      - 4.2
-    nvm_global_packages:  ['babel-cli', 'babel-preset-es2016', 'babel-preset-es2015', 'babel-preset-env', 'babel-preset-react', 'grunt', 'gulp', 'typescript', 'angular-cli', 'bower', 'npm-check-updates', 'yo']
+---
+
+- include_vars: "{{ nvm_env }}.yml"
+
+- include: "system/install.yml"
+  when: "nvm_env == 'system'"
+
+- include: "user/install.yml"
+  when:  "nvm_env == 'user'"
 
 
-- name: Babel - generate BableRc file if needed
-  file: state=touch path={{home_directory}}/.babelrc
+- name: Create mvn root directory
+  file: path={{ nvm_root}} state=directory
 
+- name: add nvm initialization to profile
+  template:   
+    src: nvm.sh.j2
+    dest: "{{ nvm_root}}/nvm.sh"
+    
+- include: "system/install_versions.yml"
+  when: "nvm_env == 'system'"
 
-- name: Babel - Save default presets in BabelRc
-  shell: echo "{\"presets\":[\"env\",\"es2015\"]}" >> {{home_directory}}/.babelrc
+- include: "system/install_packages.yml"
+  when: "nvm_env == 'system'"
 
-- name: NodeJs Source bash_profile
-  shell: source {{home_directory}}/.bashrc
+- include: "user/install_versions.yml"
+  when: "nvm_env == 'user'"
+
+- include: "user/install_packages.yml"
+  when: "nvm_env == 'user'"
+
+- include: "bash_rc.yml"

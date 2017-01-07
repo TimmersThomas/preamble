@@ -11,24 +11,24 @@
   homebrew: update_homebrew=yes
 
 - name: Ensure presence of bash_profile
-  file: state=touch path={{home_directory}}/.bash_profile
+  file: state=touch path={{ ansible_env.HOME}}/.bash_profile
 
 - name: Load bashrc in bash_profile
-  lineinfile: dest={{home_directory}}/.bash_profile regexp="\. \$HOME\/\.bashrc" line="[[ -r $HOME/.bashrc ]] && . $HOME/.bashrc"
+  lineinfile: dest={{ ansible_env.HOME}}/.bash_profile regexp="\. \$HOME\/\.bashrc" line="[[ -r $HOME/.bashrc ]] && . $HOME/.bashrc"
 
 - name: Ensure presence of bashrc
-  file: state=touch path={{home_directory}}/.bashrc
+  file: state=touch path={{ ansible_env.HOME}}/.bashrc
 
 - name: Add local bin to $PATH
-  shell: echo "export PATH=\"$HOME/local/bin\:\$PATH\"" >> {{home_directory}}/.bashrc
+  shell: echo "export PATH=\"$HOME/local/bin\:\$PATH\"" >> {{ ansible_env.HOME}}/.bashrc
 
 - name: Add brew to beginning of $PATH
-  shell: echo "export PATH=\"/usr/local/bin\:\$PATH\"" >> {{home_directory}}/.bashrc
+  shell: echo "export PATH=\"/usr/local/bin\:\$PATH\"" >> {{ ansible_env.HOME}}/.bashrc
 
 - name: Set bash_aliases
   template:
     src: bash_aliases.j2
-    dest: {{home_directory}}/.bash_aliases
+    dest: "{{ ansible_env.HOME}}/.bash_aliases"
 
 - name: Tap homebrew cask
   homebrew_tap: name=caskroom/cask state=present

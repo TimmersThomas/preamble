@@ -5,12 +5,12 @@
     - mvn32
 
 - name: Added java_home variable to terminal $PATH
-  shell: echo "export JAVA_HOME=\"$(\/usr\/libexec\/java_home -v 1.8)\"" >> {{home_directory}}/.bashrc
+  shell: echo "export JAVA_HOME=\"$(\/usr\/libexec\/java_home -v 1.8)\"" >> {{ ansible_env.HOME}}/.bashrc
 
 - name: Create m2-repo directory
-  file: path={{home_directory}}/.m2 state=directory
+  file: path={{ ansible_env.HOME}}/.m2 state=directory
 
 - name: Set m2-repo settings directory
   template:
     src: settings.xml.j2
-    dest: "{{home_directory}}/.m2/settings.xml"
+    dest: "{{ ansible_env.HOME}}/.m2/settings.xml"
