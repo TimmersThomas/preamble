@@ -1,6 +1,18 @@
 - include: applications.yml tags=osx,apps
 #- include: capslock_to_control.yml tags=osx,capslock
 - include: defaults.yml tags=osx,defaults
+- include: com.apple.RemoteDesktop.yaml tags=osx,defaults
+- include: com.apple.Safari.yaml tags=osx,defaults
+- include: com.apple.ScreenSharing.yaml tags=osx,defaults
+- include: com.apple.desktopservices.yaml tags=osx,defaults
+- include: com.apple.dock.yaml tags=osx,defaults
+- include: com.apple.driver.AppleBluetoothMultitouch.trackpad.yaml tags=osx,defaults
+- include: com.apple.finder.yaml tags=osx,defaults
+- include: com.apple.iTunes.yaml tags=osx,defaults
+- include: com.apple.messageshelper.yaml tags=osx,defaults
+- include: com.apple.print.yaml tags=osx,defaults
+- include: com.apple.terminal.yaml tags=osx,defaults
+- include: com.apple.yaml tags=osx,defaults
 
 # http://files.canon-europe.com/files/soft43931/software/d1343mux_m_215_drv012_cotv013_gdpv012.dmg
 # Needed on Mavericks with Xcode 4.6

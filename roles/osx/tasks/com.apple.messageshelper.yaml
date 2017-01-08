@@ -1,0 +1,12 @@
+#!/usr/bin/env ANSIBLE_HOSTS="localhost," ANSIBLE_CONNECTION=local ansible-playbook
+# vim:ft=yaml
+---
+#- name: install message defaults - Disable automatic emoji substitution (i.e. use plain text smileys)
+#  raw: defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+
+
+#- name: install message defaults - Disable continuous spell checking
+#  raw: defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+
+- name: install message defaults - Disable smart quotes as it’s annoying for messages that contain code
+  raw: defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
