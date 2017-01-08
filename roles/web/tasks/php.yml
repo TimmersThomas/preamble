@@ -1,6 +1,10 @@
 ---
 # Installs nginx and makes sure we can redirect *.dev to custom ports
 
+
+- name: Tap homebrew PHP
+  homebrew_tap: name=homebrew/homebrew-php state=present
+
 - name: Install PHP versions
   homebrew: name={{ item }} state=present
   with_items:

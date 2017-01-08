@@ -33,6 +33,12 @@
 - name: Tap homebrew cask
   homebrew_tap: name=caskroom/cask state=present
 
+- name: Tap homebrew dupes
+  homebrew_tap: name=homebrew/dupes state=present
+
+- name: Tap homebrew versions
+  homebrew_tap: name=homebrew/versions state=present
+
 - name: Clean homebrew cask
   shell: brew cask cleanup
   
@@ -43,8 +49,6 @@
   with_items:
     - git
     - curl
-    - build-essential
-    - libssl-dev
     - htop   # [A better top](http://hisham.hm/htop/)
     - git-flow
     - hub    # Command line interface for GitHub (wrapper for `git`)

@@ -1,8 +1,13 @@
+- name: Install Applications
+  homebrew_cask: name={{ item }} state=installed
+  with_items:
+    - java
+
 - name: Install maven
   homebrew: name={{ item }} state=present
   with_items:
-    - mvn
-    - mvn32
+    - maven
+#    - maven32
 
 - name: Added java_home variable to terminal $PATH
   shell: echo "export JAVA_HOME=\"$(\/usr\/libexec\/java_home -v 1.8)\"" >> {{ ansible_env.HOME}}/.bashrc
